@@ -1,0 +1,25 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            {{#if user}}
+                <li><a href="/dashboard">Tableau de bord</a></li>
+            {{/if}}
+
+            {{#if isAdmin}}
+                <li><a href="/admin">Administration</a></li>
+            {{/if}}
+
+            {{#unless user}}
+                <li><a href="/inscription">Inscription</a></li>
+                <li><a href="/connexion">Connexion</a></li>
+            {{/unless}}
+
+        </ul>
+        {{#if user}}
+            <form id="deconnexion">
+                <button type="submit">Deconnexion</button>
+            </form>
+        {{/if}}
+    </nav>
+</header>

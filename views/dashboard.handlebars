@@ -1,0 +1,117 @@
+<div style="max-width:1100px; margin:2rem auto; padding:0 2rem;">
+
+    <!-- HEADER -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+            <p style="color:var(--gray-light); font-size:0.9rem; margin-bottom:0.3rem;">Tableau de bord</p>
+            <h1 style="font-size:1.8rem; font-weight:800;">Bonjour, {{user.name}} 👋</h1>
+        </div>
+        <button onclick="seDeconnecter()" class="btn btn-outline btn-sm">Déconnexion</button>
+    </div>
+
+    <!-- STATS -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; margin-bottom:2.5rem;">
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">📦</div>
+            <div style="font-size:2rem; font-weight:800; color:var(--green);">{{colis.length}}</div>
+            <div style="color:var(--gray-light); font-size:0.85rem;">Colis assignés</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">✅</div>
+            <div style="font-size:2rem; font-weight:800; color:var(--green);" id="nb-livres">0</div>
+            <div style="color:var(--gray-light); font-size:0.85rem;">Livrés</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">🔄</div>
+            <div style="font-size:2rem; font-weight:800; color:#2563eb;" id="nb-en-cours">0</div>
+            <div style="color:var(--gray-light); font-size:0.85rem;">En cours</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">↩️</div>
+            <div style="font-size:2rem; font-weight:800; color:#dc2626;" id="nb-retournes">0</div>
+            <div style="color:var(--gray-light); font-size:0.85rem;">Retournés</div>
+        </div>
+        <div class="card" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">💰</div>
+            <div style="font-size:2rem; font-weight:800; color:var(--green);">{{paiements.length}}</div>
+            <div style="color:var(--gray-light); font-size:0.85rem;">Paiements reçus</div>
+        </div>
+    </div>
+
+    <!-- COLIS -->
+    <div class="card" style="padding:1.5rem; margin-bottom:2rem;">
+        <h2 style="font-size:1.1rem; font-weight:700; margin-bottom:1.2rem;">📋 Mes colis du jour</h2>
+        <table style="width:100%; border-collapse:collapse;">
+            <thead>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <th style="text-align:left; padding:0.7rem 1rem; color:var(--gray-light); font-size:0.8rem; text-transform:uppercase;">ID</th>
+                    <th style="text-align:left; padding:0.7rem 1rem; color:var(--gray-light); font-size:0.8rem; text-transform:uppercase;">Description</th>
+                    <th style="text-align:left; padding:0.7rem 1rem; color:var(--gray-light); font-size:0.8rem; text-transform:uppercase;">Statut</th>
+                    <th style="text-align:left; padding:0.7rem 1rem; color:var(--gray-light); font-size:0.8rem; text-transform:uppercase;">Stop</th>
+                </tr>
+            </thead>
+            <tbody id="colis-body">
+                {{#each colis}}
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.8rem 1rem; color:var(--gray-light);">#{{this.id}}</td>
+                    <td style="padding:0.8rem 1rem;">{{this.description}}</td>
+                    <td style="padding:0.8rem 1rem;">
+                        <span class="statut-badge statut-{{this.statut}}">{{this.statut}}</span>
+                    </td>
+                    <td style="padding:0.8rem 1rem; color:var(--gray-light);">
+                        {{#if this.stop}}{{this.stop.adresse}}{{else}}—{{/if}}
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="4" style="padding:2rem; text-align:center; color:var(--gray-light);">
+                        Aucun colis assigné pour l'instant.
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAIEMENTS -->
+    <div class="card" style="padding:1.5rem;">
+        <h2 style="font-size:1.1rem; font-weight:700; margin-bottom:1.2rem;">💰 Mes paiements</h2>
+        <table style="width:100%; border-collapse:collapse;">
+            <thead>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <th style="text-align:left; padding:0.7rem 1rem; color:var(--gray-light); font-size:0.8rem; text-transform:uppercase;">Période</th>
+                    <th style="text-align:left; padding:0.7rem 1rem; color:var(--gray-light); font-size:0.8rem; text-transform:uppercase;">Montant</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each paiements}}
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.8rem 1rem;">{{this.periode}}</td>
+                    <td style="padding:0.8rem 1rem; color:var(--green); font-weight:700;">{{this.montant}} $</td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="2" style="padding:2rem; text-align:center; color:var(--gray-light);">
+                        Aucun paiement enregistré.
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<style>
+.statut-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.statut-en_attente { background: #37415133; color: #9ca3af; border: 1px solid #374151; }
+.statut-en_cours   { background: #1d4ed833; color: #60a5fa; border: 1px solid #2563eb; }
+.statut-livre      { background: #14532d33; color: #4ade80; border: 1px solid #16a34a; }
+.statut-retourne   { background: #7f1d1d33; color: #f87171; border: 1px solid #dc2626; }
+</style>

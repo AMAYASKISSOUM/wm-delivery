@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            Int          @id @default(autoincrement())
+  email         String       @unique
+  name          String?
+  role          String       @default("employe") // admin, employe
+  actif         Boolean      @default(true)
+  password      String
+  colisLivres   Colis[]      @relation("ColisLivreur")
+  paiements     Paiement[]   @relation("PaiementLivreur")
+}
+
+model Colis {
+  id          Int      @id @default(autoincrement())
+  description String
+  statut      String   @default("en_attente") // en_attente, en_cours, livre, retourne
+  causeRetour String?
+  livreurId   Int?
+  livreur     User?    @relation("ColisLivreur", fields: [livreurId], references: [id])
+  stopId      Int?
+  stop        Stop?    @relation(fields: [stopId], references: [id])
+  createdAt   DateTime @default(now())
+}
+
+model Route {
+  id    Int     @id @default(autoincrement())
+  nom   String
+  actif Boolean @default(true)
+  stops Stop[]
+}
+
+model Stop {
+  id      Int     @id @default(autoincrement())
+  adresse String
+  ordre   Int
+  routeId Int
+  route   Route   @relation(fields: [routeId], references: [id])
+  colis   Colis[]
+}
+
+model Paiement {
+  id        Int      @id @default(autoincrement())
+  montant   Float
+  livreurId Int
+  livreur   User     @relation("PaiementLivreur", fields: [livreurId], references: [id])
+  periode   String
+  createdAt DateTime @default(now())
+}
+
+model Candidature {
+  id        Int      @id @default(autoincrement())
+  nom       String
+  email     String
+  cv        String
+  statut    String   @default("en_attente") // en_attente, accepte, refuse
+  createdAt DateTime @default(now())
+}

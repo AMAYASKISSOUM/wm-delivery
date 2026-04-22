@@ -1,0 +1,237 @@
+<!-- HERO -->
+<section class="hero">
+    <img src="/assets/truck1.jpeg" alt="W&M Delivery" class="hero-img" />
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="/assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Livraison <span>Rapide</span></h1>
+        <p>La livraison, pensée comme une extension de votre marque.</p>
+        <div class="hero-buttons">
+            {{#if user}}
+                <a href="/dashboard" class="btn btn-primary">Mon tableau de bord →</a>
+            {{else}}
+                <a href="/inscription" class="btn btn-primary">Commencer maintenant →</a>
+            {{/if}}
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><strong>98%</strong><span>Taux de livraison</span></div>
+            <div class="hero-stat"><strong>24h</strong><span>Délai moyen</span></div>
+            <div class="hero-stat"><strong>100%</strong><span>Traçabilité</span></div>
+            <div class="hero-stat"><strong>Éco</strong><span>Flotte verte</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<div id="services">
+    <div class="section">
+        <p class="section-label">Nos services</p>
+        <h2 class="section-title">Tout ce dont vous avez besoin</h2>
+        <p class="section-subtitle">Une plateforme complète pour gérer vos livraisons de A à Z, avec des outils pensés pour vos livreurs et vos clients.</p>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Gestion des colis</h3>
+                <p>Suivez chaque colis en temps réel. Statuts mis à jour automatiquement à chaque étape de la livraison.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🗺️</div>
+                <h3>Optimisation des routes</h3>
+                <p>Assignez des routes intelligentes à vos livreurs pour maximiser l'efficacité et réduire les délais.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👷</div>
+                <h3>Gestion des livreurs</h3>
+                <p>Recrutez, activez et gérez vos livreurs depuis un panneau d'administration centralisé.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💰</div>
+                <h3>Paiements automatisés</h3>
+                <p>Calculez et enregistrez les paiements de vos livreurs selon leurs performances et leurs livraisons.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Tableau de bord</h3>
+                <p>Chaque livreur accède à ses statistiques, son historique et ses paiements en temps réel.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌿</div>
+                <h3>Écoresponsable</h3>
+                <p>Notre flotte optimisée réduit l'empreinte carbone. Livraison efficace et respectueuse de l'environnement.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FLOTTE -->
+<div class="fleet-section">
+    <div class="fleet-content">
+        <div class="fleet-text">
+            <p class="section-label">Notre flotte</p>
+            <h2 class="section-title">Des véhicules adaptés à chaque livraison</h2>
+            <p style="color:var(--gray-light); line-height:1.7; margin-bottom:1.5rem;">
+                De la voiture compacte au camion avec remorque, W&M Delivery dispose d'une flotte complète pour répondre à tous vos besoins — petits colis, grandes marchandises, transports spéciaux.
+            </p>
+            <ul class="fleet-list">
+                <li>✅ Voitures pour livraisons urbaines rapides</li>
+                <li>✅ Camionnettes pour colis moyens</li>
+                <li>✅ Camions avec remorque pour grandes charges</li>
+                <li>✅ Suivi GPS en temps réel sur tous les véhicules</li>
+            </ul>
+        </div>
+        <div class="fleet-image">
+            <img src="/assets/truck2.jpeg" alt="Flotte W&M Delivery" />
+        </div>
+    </div>
+</div>
+
+<!-- COMMENT ÇA MARCHE -->
+<div id="comment" class="how-section">
+    <div style="max-width:1200px; margin:0 auto;">
+        <p class="section-label" style="text-align:center;">Processus</p>
+        <h2 class="section-title" style="text-align:center; margin-bottom:3rem;">Comment ça marche ?</h2>
+        <div class="how-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Candidature</h3>
+                <p>Le livreur soumet sa candidature en ligne. L'admin examine le dossier et accepte ou refuse.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Activation du compte</h3>
+                <p>Une fois accepté, le livreur reçoit ses accès et peut se connecter à son espace personnel.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Assignation des routes</h3>
+                <p>L'admin assigne des routes et des colis au livreur selon sa zone et sa disponibilité.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Livraison & suivi</h3>
+                <p>Le livreur effectue ses livraisons et met à jour le statut de chaque colis en temps réel.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h3>Paiement</h3>
+                <p>À la fin de la période, l'admin enregistre le paiement du livreur selon ses performances.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- POURQUOI NOUS -->
+<div class="why-section">
+    <div class="why-grid">
+        <div>
+            <p class="section-label">Pourquoi W&M Delivery ?</p>
+            <h2 class="section-title">Une plateforme pensée pour la performance</h2>
+            <div class="why-list">
+                <div class="why-item">
+                    <div class="why-icon">⚡</div>
+                    <div>
+                        <h4>Rapidité d'exécution</h4>
+                        <p>Nos livreurs sont assignés automatiquement selon leur zone et leur disponibilité en temps réel.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🔒</div>
+                    <div>
+                        <h4>Sécurité garantie</h4>
+                        <p>Chaque colis est tracé de l'entrepôt jusqu'à la porte du client. Zéro perte, zéro surprise.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">📱</div>
+                    <div>
+                        <h4>100% mobile</h4>
+                        <p>Nos livreurs gèrent tout depuis leur téléphone. Interface simple, rapide et intuitive.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🌿</div>
+                    <div>
+                        <h4>Engagement éco</h4>
+                        <p>Routes optimisées pour réduire les trajets inutiles et l'empreinte carbone de chaque livraison.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="why-visual">
+            <div class="why-visual-item">
+                <span>📦 Colis en cours</span>
+                <strong>247 actifs</strong>
+            </div>
+            <div class="why-visual-item">
+                <span>👷 Livreurs actifs</span>
+                <strong>18 en route</strong>
+            </div>
+            <div class="why-visual-item">
+                <span>✅ Livrés aujourd'hui</span>
+                <strong>134 colis</strong>
+            </div>
+            <div class="why-visual-item">
+                <span>⏱️ Délai moyen</span>
+                <strong>2h 14min</strong>
+            </div>
+            <div class="why-visual-item">
+                <span>⭐ Satisfaction client</span>
+                <strong>98.4%</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TÉMOIGNAGES -->
+<div class="testimonials">
+    <p class="section-label">Témoignages</p>
+    <h2 class="section-title">Ce que disent nos partenaires</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>Depuis qu'on utilise W&M Delivery, nos délais ont été réduits de 40%. L'interface est claire et nos livreurs adorent l'application.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">KM</div>
+                <div>
+                    <strong>Kevin M.</strong>
+                    <span>Responsable logistique, BioFresh</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>Le panneau admin est vraiment complet. On voit tout en temps réel : les colis, les livreurs, les paiements. Exactement ce dont on avait besoin.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">SL</div>
+                <div>
+                    <strong>Sophie L.</strong>
+                    <span>Directrice ops, MarketPro</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>Simple à prendre en main, même pour nos livreurs qui ne sont pas à l'aise avec la tech. En 5 minutes ils savent tout utiliser.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">YB</div>
+                <div>
+                    <strong>Yannick B.</strong>
+                    <span>Gérant, QuickStore MTL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+    <h2>Prêt à rejoindre W&M Delivery ?</h2>
+    <p>Créez votre compte livreur en moins de 2 minutes et commencez dès aujourd'hui.</p>
+    {{#if user}}
+        <a href="/dashboard" class="btn btn-primary">Accéder à mon espace →</a>
+    {{else}}
+        <a href="/inscription" class="btn btn-primary">Créer mon compte →</a>
+    {{/if}}
+</div>
